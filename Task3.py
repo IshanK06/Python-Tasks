@@ -1,5 +1,4 @@
 class Contact:
-    """Class to represent a single contact."""
     def __init__(self, name, phone, email, address):
         self.name = name
         self.phone = phone
@@ -7,7 +6,6 @@ class Contact:
         self.address = address
 
 class ContactBook:
-    """Class to manage the collection of contacts."""
     def __init__(self):
         self.contacts = []
 
@@ -27,7 +25,6 @@ class ContactBook:
         print("--------------------")
 
     def search_contact(self, search_term):
-        # Search by checking if the search term is in the name or the phone number
         found_contacts = [c for c in self.contacts if search_term.lower() in c.name.lower() or search_term in c.phone]
         
         if not found_contacts:
@@ -48,11 +45,9 @@ class ContactBook:
         found_contacts = self.search_contact(search_term)
         
         if found_contacts:
-            # We'll update the first matching contact found
             contact = found_contacts[0] 
             print("\nEnter new details (leave blank and press Enter to keep current value):")
             
-            # Using 'or' keeps the original value if the user just presses Enter
             new_name = input(f"Name [{contact.name}]: ").strip() or contact.name
             new_phone = input(f"Phone [{contact.phone}]: ").strip() or contact.phone
             new_email = input(f"Email [{contact.email}]: ").strip() or contact.email
