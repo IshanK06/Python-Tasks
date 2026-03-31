@@ -9,16 +9,14 @@ def display_menu():
     print("4. Exit")
     print("="*25)
 
-def main():
-    # This list will store all our tasks
+def main():
     tasks = []
     
     while True:
         display_menu()
         choice = input("Enter your choice (1-4): ")
 
-        if choice == '1':
-            # View Tasks
+        if choice == '1':
             if not tasks:
                 print("\n✨ Your to-do list is currently empty!")
             else:
@@ -26,21 +24,18 @@ def main():
                 for index, task in enumerate(tasks):
                     print(f"{index + 1}. {task}")
                     
-        elif choice == '2':
-            # Add a Task
+        elif choice == '2':
             new_task = input("\nEnter the task description: ")
             tasks.append(new_task)
             print(f"✅ '{new_task}' has been added to your list.")
             
-        elif choice == '3':
-            # Remove a Task
+        elif choice == '3':
             if not tasks:
                 print("\n⚠️ No tasks to remove. Your list is empty.")
                 continue
                 
             try:
-                task_num = int(input("\nEnter the task number you want to remove: "))
-                # Check if the number entered is within the valid range
+                task_num = int(input("\nEnter the task number you want to remove: "))
                 if 1 <= task_num <= len(tasks):
                     removed_task = tasks.pop(task_num - 1)
                     print(f"🗑️ '{removed_task}' has been removed.")
@@ -49,8 +44,7 @@ def main():
             except ValueError:
                 print("❌ Please enter a valid numerical digit.")
                 
-        elif choice == '4':
-            # Exit the program
+        elif choice == '4':
             print("\nExiting the To-Do List. Have a productive day! 👋")
             break
             
